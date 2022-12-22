@@ -16,18 +16,22 @@ public class EstadoService {
     @Autowired
     private EstadoRepository er;
 
-    public Estado inserir(Estado estado){
+    public List<Estado> buscarTodos(){
+        return er.findAll();
+    }
+
+    public Estado inserirEstado(Estado estado){
         
         estado.setDataCriacao(new Date());
         Estado estadoNovo = er.saveAndFlush(estado);
         return estadoNovo;
     }
 
-    public Estado alterar(Estado estado){
-        
-        estado.setDataAtualizacao(new Date());
-        Estado estadoEditado = er.saveAndFlush(estado);
-        return estadoEditado;
+    public Estado editarEstado(Estado estadoAtual){
+        Estado estadoAntigo = er.findById(estadoAtual.getId()).get();
+        estadoAtual.setDataCriacao(estadoAntigo.getDataCriacao());
+        estadoAtual.setDataAtualizacao(new Date());
+        return er.saveAndFlush(estadoAtual);
     }
 
     public void excluirEstado(Long id){
@@ -40,7 +44,4 @@ public class EstadoService {
         }
     }
 
-    public List<Estado> buscarTodos(){
-        return er.findAll();
-    }
 }
