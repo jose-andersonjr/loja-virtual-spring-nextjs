@@ -2,34 +2,29 @@ package com.dev.backend.entity;
 
 import java.util.Date;
 
+import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 @Entity
-@Table(name = "cidade")
+@Table(name = "permissao")
 @Data
-public class Cidade {
-
+public class Permissao {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "nome")
     private String nome;
-
-    @ManyToOne
-    @JoinColumn(name = "idEstado")
-    private Estado estado;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_criacao")
@@ -38,5 +33,6 @@ public class Cidade {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_atualizacao")
     private Date dataAtualizacao;
-    
+
+
 }
