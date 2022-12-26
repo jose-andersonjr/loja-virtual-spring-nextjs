@@ -36,12 +36,12 @@ public class CidadeController {
     }
     
     @PutMapping("/")
-    public Cidade editarCidade(@RequestBody Cidade cidade){
-        return cs.editarCidade(cidade);
+    public Cidade alterarCidade(@RequestBody Cidade cidade){
+        return cs.alterarCidade(cidade);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletarCidade(@PathVariable Long id){
+    public ResponseEntity<?> deletarCidade(@PathVariable("id") Long id){
         cs.deletarCidade(id);
         return ResponseEntity.status(200).build();
     }

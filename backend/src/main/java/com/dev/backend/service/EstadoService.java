@@ -25,8 +25,6 @@ public class EstadoService {
     }
 
     public Estado alterarEstado(Estado estadoAtual){
-        Estado estadoAntigo = er.findById(estadoAtual.getId()).get();
-        estadoAtual.setDataCriacao(estadoAntigo.getDataCriacao());
         estadoAtual.setDataAtualizacao(new Date());
         return er.saveAndFlush(estadoAtual);
     }

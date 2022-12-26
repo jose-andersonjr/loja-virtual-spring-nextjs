@@ -27,8 +27,6 @@ public class CategoriaService {
     }
 
     public Categoria alterarCategoria(Categoria categoria){
-        Categoria categoriaAntiga = cr.findById(categoria.getId()).get();
-        categoria.setDataCriacao(categoriaAntiga.getDataCriacao());
         categoria.setDataAtualizacao(new Date());
         return cr.saveAndFlush(categoria);
     }

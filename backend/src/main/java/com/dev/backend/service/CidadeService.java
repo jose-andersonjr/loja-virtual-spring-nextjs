@@ -24,9 +24,7 @@ public class CidadeService {
 
     }
 
-    public Cidade editarCidade(Cidade cidade){
-        Cidade cidadeAntiga = cr.findById(cidade.getId()).get();
-        cidade.setDataCriacao(cidadeAntiga.getDataCriacao());
+    public Cidade alterarCidade(Cidade cidade){
         cidade.setDataAtualizacao(new Date());
         return cr.saveAndFlush(cidade);
     }

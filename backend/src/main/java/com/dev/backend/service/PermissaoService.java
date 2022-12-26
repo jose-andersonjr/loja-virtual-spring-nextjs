@@ -11,31 +11,29 @@ import com.dev.backend.repository.PermissaoRepository;
 public class PermissaoService {
     
     @Autowired
-    private PermissaoRepository mr;
+    private PermissaoRepository pr;
 
     public List<Permissao> listarPermissoes(){
-        return mr.findAll();
+        return pr.findAll();
     }
 
     public Permissao inserirPermissao(Permissao permissao){
 
         permissao.setDataCriacao(new Date());
-        Permissao novaPermissao = mr.saveAndFlush(permissao);
+        Permissao novaPermissao = pr.saveAndFlush(permissao);
         return novaPermissao;
     }
 
     public Permissao alterarPermissao(Permissao permissao){
-        Permissao permissaoAntiga = mr.findById(permissao.getId()).get();
-        permissao.setDataCriacao(permissaoAntiga.getDataCriacao());
         permissao.setDataAtualizacao(new Date());
-        return mr.saveAndFlush(permissao);
+        return pr.saveAndFlush(permissao);
     }
 
     public void deletarPermissao(Long id){
         try {
-            Permissao permissaoExcluir = mr.findById(id).get();
+            Permissao permissaoExcluir = pr.findById(id).get();
             permissaoExcluir.setDataAtualizacao(new Date());
-            mr.deleteById(id);
+            pr.deleteById(id);
         } catch (Exception e) {
             System.out.println("A permissao solicitado não foi encontrado! A mensagem de erro é: " + e);
         }

@@ -25,8 +25,6 @@ public class MarcaService {
     }
 
     public Marca alterarMarca(Marca marca){
-        Marca marcaAntiga = mr.findById(marca.getId()).get();
-        marca.setDataCriacao(marcaAntiga.getDataCriacao());
         marca.setDataAtualizacao(new Date());
         return mr.saveAndFlush(marca);
     }

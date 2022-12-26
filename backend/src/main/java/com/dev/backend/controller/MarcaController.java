@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.dev.backend.entity.Categoria;
 import com.dev.backend.entity.Marca;
-import com.dev.backend.service.CategoriaService;
 import com.dev.backend.service.MarcaService;
 
 @RestController
@@ -41,7 +38,7 @@ public class MarcaController {
         return ms.alterarMarca(marca);
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarMarca(@PathVariable Long id){
+    public ResponseEntity<Void> deletarMarca(@PathVariable("id") Long id){
         ms.deletarMarca(id);
         return ResponseEntity.ok().build();
     }

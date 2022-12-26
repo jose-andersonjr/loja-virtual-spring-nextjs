@@ -1,9 +1,6 @@
 package com.dev.backend.controller;
 
-import java.util.Date;
 import java.util.List;
-
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -42,7 +39,7 @@ public class EstadoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarEstado(@PathVariable Long id){
+    public ResponseEntity<Void> deletarEstado(@PathVariable("id") Long id){
         es.deletarEstado(id);
         return ResponseEntity.ok().build();
     }
