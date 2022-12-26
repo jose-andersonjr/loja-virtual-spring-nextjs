@@ -10,6 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 @Entity
@@ -22,17 +24,19 @@ public class Cidade {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "nome")
+    @Column(name = "nome", nullable = false)
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "idEstado")
+    @JoinColumn(name = "idEstado", nullable = false)
     private Estado estado;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_criacao")
     private Date dataCriacao;
 
-    @Column(name = "data_atualização")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_atualizacao")
     private Date dataAtualizacao;
     
 }

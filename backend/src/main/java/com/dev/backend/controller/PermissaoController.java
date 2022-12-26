@@ -1,9 +1,6 @@
 package com.dev.backend.controller;
 
-import java.util.Date;
 import java.util.List;
-
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,35 +12,35 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.dev.backend.entity.Estado;
-import com.dev.backend.service.EstadoService;
+import com.dev.backend.entity.Permissao;
+import com.dev.backend.service.PermissaoService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/estado")
-public class EstadoController {
+@RequestMapping("/api/permissao")
+public class PermissaoController {
 
     @Autowired
-    EstadoService es;
+    PermissaoService es;
 
     @GetMapping("/")
-    public List<Estado> listarEstados(){
-        return es.listarEstados();
+    public List<Permissao> listarPermissoes(){
+        return es.listarPermissoes();
     }
 
     @PostMapping("/")
-    public Estado inserirEstado(@RequestBody Estado estado){
-        return es.inserirEstado(estado);
+    public Permissao inserirPermissao(@RequestBody Permissao permissao){
+        return es.inserirPermissao(permissao);
     }
 
     @PutMapping("/")
-    public Estado alterarEstado(@RequestBody Estado estado){
-        return es.alterarEstado(estado);
+    public Permissao alterarPermissao(@RequestBody Permissao permissao){
+        return es.alterarPermissao(permissao);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarEstado(@PathVariable Long id){
-        es.deletarEstado(id);
+    public ResponseEntity<Void> deletarPermissao(@PathVariable Long id){
+        es.deletarPermissao(id);
         return ResponseEntity.ok().build();
     }
 

@@ -1,9 +1,6 @@
 package com.dev.backend.controller;
 
-import java.util.Date;
 import java.util.List;
-
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,35 +12,36 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.dev.backend.entity.Estado;
-import com.dev.backend.service.EstadoService;
+
+import com.dev.backend.entity.Categoria;
+import com.dev.backend.service.CategoriaService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/estado")
-public class EstadoController {
+@RequestMapping("/api/categoria")
+public class CategoriaController {
 
     @Autowired
-    EstadoService es;
+    CategoriaService cs;
 
     @GetMapping("/")
-    public List<Estado> listarEstados(){
-        return es.listarEstados();
+    public List<Categoria> listarCategorias(){
+        return cs.listarCategorias();
     }
 
     @PostMapping("/")
-    public Estado inserirEstado(@RequestBody Estado estado){
-        return es.inserirEstado(estado);
+    public Categoria inserirCategoria(@RequestBody Categoria categoria){
+        return cs.inserirCategoria(categoria);
     }
 
     @PutMapping("/")
-    public Estado alterarEstado(@RequestBody Estado estado){
-        return es.alterarEstado(estado);
+    public Categoria alterarCategoria(@RequestBody Categoria categoria){
+        return cs.alterarCategoria(categoria);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarEstado(@PathVariable Long id){
-        es.deletarEstado(id);
+    public ResponseEntity<Void> deletarCategoria(@PathVariable Long id){
+        cs.deletarCategoria(id);
         return ResponseEntity.ok().build();
     }
 

@@ -2,6 +2,8 @@ package com.dev.backend.entity;
 
 import java.util.Date;
 
+import org.springframework.web.bind.annotation.RestController;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,28 +15,25 @@ import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 @Entity
-@Table(name = "estado")
+@Table(name="marca")
 @Data
-public class Estado {
+public class Marca {
 
     @Id
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private Long id;
-
-    @Column(name = "nome", nullable = false)
+    
+    @Column(name="nome", nullable = false)
     private String nome;
 
-    @Column(name = "sigla", nullable = false)
-    private String sigla;
-
-    @Column(name = "data_criacao")
+    @Column(name="data_criacao")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
 
-    @Column(name = "data_atualizacao")
+    @Column(name="data_atualizacao")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
 
-    
+
 }

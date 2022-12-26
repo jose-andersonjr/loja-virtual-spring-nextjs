@@ -13,28 +13,25 @@ import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 @Entity
-@Table(name = "estado")
+@Table(name = "categoria")
 @Data
-public class Estado {
-
+public class Categoria {
+    
     @Id
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private Long id;
 
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "sigla", nullable = false)
-    private String sigla;
-
-    @Column(name = "data_criacao")
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_criacao")
     private Date dataCriacao;
 
-    @Column(name = "data_atualizacao")
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="data_atualizacao")
     private Date dataAtualizacao;
-
     
+
 }

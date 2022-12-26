@@ -2,11 +2,8 @@ package com.dev.backend.service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.dev.backend.entity.Estado;
 import com.dev.backend.repository.EstadoRepository;
 
@@ -16,7 +13,7 @@ public class EstadoService {
     @Autowired
     private EstadoRepository er;
 
-    public List<Estado> buscarTodos(){
+    public List<Estado> listarEstados(){
         return er.findAll();
     }
 
@@ -27,14 +24,14 @@ public class EstadoService {
         return estadoNovo;
     }
 
-    public Estado editarEstado(Estado estadoAtual){
+    public Estado alterarEstado(Estado estadoAtual){
         Estado estadoAntigo = er.findById(estadoAtual.getId()).get();
         estadoAtual.setDataCriacao(estadoAntigo.getDataCriacao());
         estadoAtual.setDataAtualizacao(new Date());
         return er.saveAndFlush(estadoAtual);
     }
 
-    public void excluirEstado(Long id){
+    public void deletarEstado(Long id){
         try {
             Estado estadoExcluir = er.findById(id).get();
             estadoExcluir.setDataAtualizacao(new Date());
