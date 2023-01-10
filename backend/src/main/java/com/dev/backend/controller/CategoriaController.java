@@ -26,22 +26,22 @@ public class CategoriaController {
 
     @GetMapping("/")
     public List<Categoria> listarCategorias(){
-        return cs.listarCategorias();
+        return cs.listar();
     }
 
     @PostMapping("/")
     public Categoria inserirCategoria(@RequestBody Categoria categoria){
-        return cs.inserirCategoria(categoria);
+        return cs.inserir(categoria);
     }
 
     @PutMapping("/")
     public Categoria alterarCategoria(@RequestBody Categoria categoria){
-        return cs.alterarCategoria(categoria);
+        return cs.alterar(categoria);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarCategoria(@PathVariable("id") Long id){
-        cs.deletarCategoria(id);
+        cs.deletar(id);
         return ResponseEntity.ok().build();
     }
 

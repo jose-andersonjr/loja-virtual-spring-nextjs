@@ -30,7 +30,7 @@ public class ProdutoImagens {
 
     @ManyToOne
     @JoinColumn(name = "idProduto")
-    private Long idProduto;
+    private Produto produto;
 
     @Column(name = "data_criacao")
     @Temporal(TemporalType.TIMESTAMP)

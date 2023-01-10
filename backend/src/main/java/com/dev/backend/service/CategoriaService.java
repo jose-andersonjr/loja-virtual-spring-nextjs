@@ -15,23 +15,23 @@ public class CategoriaService {
     @Autowired
     private CategoriaRepository cr;
 
-    public List<Categoria> listarCategorias(){
+    public List<Categoria> listar(){
         return cr.findAll();
     }
 
-    public Categoria inserirCategoria(Categoria categoria){
+    public Categoria inserir(Categoria categoria){
 
         categoria.setDataCriacao(new Date());
         Categoria novaCategoria = cr.saveAndFlush(categoria);
         return novaCategoria;
     }
 
-    public Categoria alterarCategoria(Categoria categoria){
+    public Categoria alterar(Categoria categoria){
         categoria.setDataAtualizacao(new Date());
         return cr.saveAndFlush(categoria);
     }
 
-    public void deletarCategoria(Long id){
+    public void deletar(Long id){
         try {
             Categoria categoriaExcluir = cr.findById(id).get();
             categoriaExcluir.setDataAtualizacao(new Date());

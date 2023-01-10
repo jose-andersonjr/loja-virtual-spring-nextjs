@@ -38,17 +38,6 @@ public class CidadeController {
 
     @PutMapping("/")
     public Cidade editarCidade(@RequestBody Cidade cidade){
-        return cs.editarCidade(cidade);
-    }
-
-    @DeleteMapping("/")
-    public ResponseEntity<?> deletarCidade(@PathVariable Long id){
-        cs.deletarCidade(id);
-        return ResponseEntity.ok().build();
-    }
-    
-    @PutMapping("/")
-    public Cidade alterarCidade(@RequestBody Cidade cidade){
         return cs.alterarCidade(cidade);
     }
 
@@ -57,4 +46,11 @@ public class CidadeController {
         cs.deletarCidade(id);
         return ResponseEntity.status(200).build();
     }
+    
+    @PutMapping("/")
+    public Cidade alterarCidade(@RequestBody Cidade cidade){
+        return cs.alterarCidade(cidade);
+    }
+
+
 }

@@ -2,10 +2,6 @@ package com.dev.backend.entity;
 
 import java.util.Date;
 
-<<<<<<< HEAD
-import jakarta.annotation.Generated;
-=======
->>>>>>> f2bf04d651f3e0c868fb591b2aa9035ac233b0e5
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

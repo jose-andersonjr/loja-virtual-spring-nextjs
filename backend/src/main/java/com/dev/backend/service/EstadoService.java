@@ -13,23 +13,23 @@ public class EstadoService {
     @Autowired
     private EstadoRepository er;
 
-    public List<Estado> listarEstados(){
+    public List<Estado> listar(){
         return er.findAll();
     }
 
-    public Estado inserirEstado(Estado estado){
+    public Estado inserir(Estado estado){
         
         estado.setDataCriacao(new Date());
         Estado estadoNovo = er.saveAndFlush(estado);
         return estadoNovo;
     }
 
-    public Estado alterarEstado(Estado estadoAtual){
+    public Estado alterar(Estado estadoAtual){
         estadoAtual.setDataAtualizacao(new Date());
         return er.saveAndFlush(estadoAtual);
     }
 
-    public void deletarEstado(Long id){
+    public void deletar(Long id){
         try {
             Estado estadoExcluir = er.findById(id).get();
             estadoExcluir.setDataAtualizacao(new Date());

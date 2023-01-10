@@ -13,23 +13,23 @@ public class PermissaoService {
     @Autowired
     private PermissaoRepository pr;
 
-    public List<Permissao> listarPermissoes(){
+    public List<Permissao> listar(){
         return pr.findAll();
     }
 
-    public Permissao inserirPermissao(Permissao permissao){
+    public Permissao inserir(Permissao permissao){
 
         permissao.setDataCriacao(new Date());
         Permissao novaPermissao = pr.saveAndFlush(permissao);
         return novaPermissao;
     }
 
-    public Permissao alterarPermissao(Permissao permissao){
+    public Permissao alterar(Permissao permissao){
         permissao.setDataAtualizacao(new Date());
         return pr.saveAndFlush(permissao);
     }
 
-    public void deletarPermissao(Long id){
+    public void deletar(Long id){
         try {
             Permissao permissaoExcluir = pr.findById(id).get();
             permissaoExcluir.setDataAtualizacao(new Date());

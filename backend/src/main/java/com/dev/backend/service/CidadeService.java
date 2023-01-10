@@ -13,18 +13,18 @@ public class CidadeService {
     @Autowired
     private CidadeRepository cr;
 
-    public List<Cidade> listarCidades(){
+    public List<Cidade> listar(){
         return cr.findAll();
     }
 
-    public Cidade inserirCidade(Cidade cidade){
+    public Cidade inserir(Cidade cidade){
         cidade.setDataCriacao(new Date());
         Cidade cidadeNova = cr.saveAndFlush(cidade);
         return cidadeNova;
 
     }
 
-    public Cidade editarCidade(Cidade cidade){
+    public Cidade alterar(Cidade cidade){
         Cidade cidadeAntiga = cr.findById(cidade.getId()).get();
         cidade.setDataCriacao(cidadeAntiga.getDataCriacao());
         cidade.setDataAtualizacao(new Date());
@@ -32,13 +32,9 @@ public class CidadeService {
 
     }
 
-    public void deletarCidade(Long id){
+    public void deletar(Long id){
         Cidade cidade = cr.findById(id).get();
         cr.delete(cidade);
     }
     
-    public void deletarCidade(Long id){
-        cr.deleteById(id);
-        
-    }
 }
