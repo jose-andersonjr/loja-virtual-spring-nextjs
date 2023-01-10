@@ -2,10 +2,12 @@ package com.dev.backend.service;
 
 import java.util.Date;
 import java.util.List;
+<<<<<<< HEAD
 
+=======
+>>>>>>> f2bf04d651f3e0c868fb591b2aa9035ac233b0e5
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.dev.backend.entity.Estado;
 import com.dev.backend.repository.EstadoRepository;
 
@@ -26,14 +28,12 @@ public class EstadoService {
         return estadoNovo;
     }
 
-    public Estado editarEstado(Estado estadoAtual){
-        Estado estadoAntigo = er.findById(estadoAtual.getId()).get();
-        estadoAtual.setDataCriacao(estadoAntigo.getDataCriacao());
+    public Estado alterarEstado(Estado estadoAtual){
         estadoAtual.setDataAtualizacao(new Date());
         return er.saveAndFlush(estadoAtual);
     }
 
-    public void excluirEstado(Long id){
+    public void deletarEstado(Long id){
         try {
             Estado estadoExcluir = er.findById(id).get();
             estadoExcluir.setDataAtualizacao(new Date());

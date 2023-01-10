@@ -24,11 +24,11 @@ public class Cidade {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "nome")
+    @Column(name = "nome", nullable = false)
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "idEstado")
+    @JoinColumn(name = "idEstado", nullable = false)
     private Estado estado;
 
     @Temporal(TemporalType.TIMESTAMP)

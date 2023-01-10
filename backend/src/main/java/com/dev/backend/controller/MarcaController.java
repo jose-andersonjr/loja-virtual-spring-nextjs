@@ -12,35 +12,34 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.dev.backend.entity.Estado;
-import com.dev.backend.service.EstadoService;
+import com.dev.backend.entity.Marca;
+import com.dev.backend.service.MarcaService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/estado")
-public class EstadoController {
+@RequestMapping("/api/marca")
+public class MarcaController {
 
     @Autowired
-    EstadoService es;
+    MarcaService ms;
 
     @GetMapping("/")
-    public List<Estado> listarEstados(){
-        return es.listarEstados();
+    public List<Marca> listarMarcas(){
+        return ms.listarMarcas();
     }
 
     @PostMapping("/")
-    public Estado inserirEstado(@RequestBody Estado estado){
-        return es.inserirEstado(estado);
+    public Marca inserirMarca(@RequestBody Marca marca){
+        return ms.inserirMarca(marca);
     }
 
     @PutMapping("/")
-    public Estado alterarEstado(@RequestBody Estado estado){
-        return es.alterarEstado(estado);
+    public Marca alterarMarca(@RequestBody Marca marca){
+        return ms.alterarMarca(marca);
     }
-
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarEstado(@PathVariable("id") Long id){
-        es.deletarEstado(id);
+    public ResponseEntity<Void> deletarMarca(@PathVariable("id") Long id){
+        ms.deletarMarca(id);
         return ResponseEntity.ok().build();
     }
 

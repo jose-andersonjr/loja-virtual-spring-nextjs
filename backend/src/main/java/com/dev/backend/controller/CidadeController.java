@@ -32,8 +32,13 @@ public class CidadeController {
     }
 
     @PostMapping("/")
+<<<<<<< HEAD
     public Cidade adicionarCidade(@RequestBody Cidade cidade){
         return cs.adicionarCidade(cidade);
+=======
+    public Cidade inserirCidade(@RequestBody Cidade cidade){
+        return cs.inserirCidade(cidade);
+>>>>>>> f2bf04d651f3e0c868fb591b2aa9035ac233b0e5
     }
 
     @PutMapping("/")
@@ -47,4 +52,14 @@ public class CidadeController {
         return ResponseEntity.ok().build();
     }
     
+    @PutMapping("/")
+    public Cidade alterarCidade(@RequestBody Cidade cidade){
+        return cs.alterarCidade(cidade);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletarCidade(@PathVariable("id") Long id){
+        cs.deletarCidade(id);
+        return ResponseEntity.status(200).build();
+    }
 }
