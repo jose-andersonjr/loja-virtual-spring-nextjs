@@ -26,20 +26,6 @@ public class Permissao {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-<<<<<<< HEAD
-    @Column(name = "nome")
-    private String nome;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "data_criacao")
-    private Date dataCriacao;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "data_atualizacao")
-    private Date dataAtualizacao;
-
-
-=======
     @Column(name = "nome", nullable = false)
     private String nome;
 
@@ -50,5 +36,4 @@ public class Permissao {
     @Column(name = "data_atualizacao")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
->>>>>>> f2bf04d651f3e0c868fb591b2aa9035ac233b0e5
 }

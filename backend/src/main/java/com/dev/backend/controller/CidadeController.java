@@ -32,13 +32,8 @@ public class CidadeController {
     }
 
     @PostMapping("/")
-<<<<<<< HEAD
-    public Cidade adicionarCidade(@RequestBody Cidade cidade){
-        return cs.adicionarCidade(cidade);
-=======
     public Cidade inserirCidade(@RequestBody Cidade cidade){
         return cs.inserirCidade(cidade);
->>>>>>> f2bf04d651f3e0c868fb591b2aa9035ac233b0e5
     }
 
     @PutMapping("/")

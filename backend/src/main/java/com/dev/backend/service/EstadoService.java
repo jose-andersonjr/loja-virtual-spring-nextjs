@@ -2,10 +2,6 @@ package com.dev.backend.service;
 
 import java.util.Date;
 import java.util.List;
-<<<<<<< HEAD
-
-=======
->>>>>>> f2bf04d651f3e0c868fb591b2aa9035ac233b0e5
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.dev.backend.entity.Estado;
