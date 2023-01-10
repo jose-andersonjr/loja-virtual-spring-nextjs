@@ -25,22 +25,22 @@ public class PermissaoController {
 
     @GetMapping("/")
     public List<Permissao> listarPermissoes(){
-        return es.listarPermissoes();
+        return es.listar();
     }
 
     @PostMapping("/")
     public Permissao inserirPermissao(@RequestBody Permissao permissao){
-        return es.inserirPermissao(permissao);
+        return es.inserir(permissao);
     }
 
     @PutMapping("/")
     public Permissao alterarPermissao(@RequestBody Permissao permissao){
-        return es.alterarPermissao(permissao);
+        return es.alterar(permissao);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarPermissao(@PathVariable("id") Long id){
-        es.deletarPermissao(id);
+        es.deletar(id);
         return ResponseEntity.ok().build();
     }
 

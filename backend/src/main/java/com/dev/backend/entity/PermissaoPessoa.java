@@ -1,6 +1,7 @@
 package com.dev.backend.entity;
 
 import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,34 +15,22 @@ import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 @Entity
-@Table(name = "produto")
+@Table(name = "permissao_pessoa")
 @Data
-public class Produto {
+public class PermissaoPessoa {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
     
-    @Column(name = "descricao_curta")
-    private String descricaoCurta;
-
-    @Column(name = "descricao_longa")
-    private String descricaoLonga;
-
-    @Column(name = "valorCusto")
-    private Double valorCusto;
-
-    @Column(name = "valorVenda")
-    private Double valorVenda;
+    @ManyToOne
+    @JoinColumn(name = "idPessoa")
+    private Pessoa pessoa;
 
     @ManyToOne
-    @JoinColumn(name = "idMarca")
-    private Marca marca;
-
-    @ManyToOne
-    @JoinColumn(name = "idCategoria")
-    private Categoria categoria;
+    @JoinColumn(name = "idPermissao")
+    private Permissao permissao;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_criacao")
@@ -50,6 +39,4 @@ public class Produto {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_atualizacao")
     private Date dataAtualizacao;
-
-
 }

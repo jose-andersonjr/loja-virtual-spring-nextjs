@@ -30,14 +30,13 @@ public class ProdutoImagensService {
     }
 
     public ProdutoImagens inserir(Long idProduto, MultipartFile file){
-        ProdutoImagens produtoImagem = new ProdutoImagens();
         Produto produto = produtoRepository.findById(idProduto).get();
-
+        ProdutoImagens produtoImagem = new ProdutoImagens();
         try {
             if (!file.isEmpty()){
                 byte[] bytes = file.getBytes();
-                String nomeImagem = String.valueOf(produto.getIdProduto()) + file.getOriginalFilename();
-                Path caminho = Paths.get("c:/imagens/" + nomeImagem);
+                String nomeImagem = String.valueOf(produto.getId()+ "id-")  + file.getOriginalFilename();
+                Path caminho = Paths.get("C:/Users/COEST/Pictures" + nomeImagem);
                 Files.write(caminho, bytes);
                 produtoImagem.setNome(nomeImagem);
             }

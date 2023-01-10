@@ -1,6 +1,7 @@
 package com.dev.backend.controller;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,37 +13,40 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.dev.backend.entity.Marca;
-import com.dev.backend.service.MarcaService;
+
+import com.dev.backend.entity.Produto;
+import com.dev.backend.service.ProdutoService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/marca")
-public class MarcaController {
+@RequestMapping("/api/produto")
+public class ProdutoController {
 
     @Autowired
-    MarcaService ms;
+    private ProdutoService produtoService;
 
+    //GET
     @GetMapping("/")
-    public List<Marca> listarMarcas(){
-        return ms.listar();
+    public List<Produto> listarProdutos(){
+        return produtoService.listar();
     }
 
+    //POST
     @PostMapping("/")
-    public Marca inserirMarca(@RequestBody Marca marca){
-        return ms.inserir(marca);
+    public Produto inserirProduto(@RequestBody Produto produto){
+        return produtoService.inserir(produto);
     }
 
+    //PUT
     @PutMapping("/")
-    public Marca alterarMarca(@RequestBody Marca marca){
-        return ms.alterar(marca);
+    public Produto alterarProduto(@RequestBody Produto produto){
+        return produtoService.alterar(produto);
     }
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarMarca(@PathVariable("id") Long id){
-        ms.deletar(id);
+
+    //DELETE
+    @DeleteMapping("/")
+    public ResponseEntity<Void> deletarProduto(@PathVariable("idProduto") Long idProduto){
+        produtoService.deletar(idProduto);
         return ResponseEntity.ok().build();
     }
-
-
-
 }

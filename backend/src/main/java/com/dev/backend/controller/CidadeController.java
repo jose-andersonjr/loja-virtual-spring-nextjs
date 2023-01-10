@@ -1,8 +1,6 @@
 package com.dev.backend.controller;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,28 +26,23 @@ public class CidadeController {
 
     @GetMapping("/")
     public List<Cidade> listarCidades(){
-        return cs.listarCidades();
+        return cs.listar();
     }
 
     @PostMapping("/")
     public Cidade inserirCidade(@RequestBody Cidade cidade){
-        return cs.inserirCidade(cidade);
+        return cs.inserir(cidade);
     }
 
     @PutMapping("/")
     public Cidade editarCidade(@RequestBody Cidade cidade){
-        return cs.alterarCidade(cidade);
+        return cs.alterar(cidade);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletarCidade(@PathVariable("id") Long id){
-        cs.deletarCidade(id);
+        cs.deletar(id);
         return ResponseEntity.status(200).build();
-    }
-    
-    @PutMapping("/")
-    public Cidade alterarCidade(@RequestBody Cidade cidade){
-        return cs.alterarCidade(cidade);
     }
 
 

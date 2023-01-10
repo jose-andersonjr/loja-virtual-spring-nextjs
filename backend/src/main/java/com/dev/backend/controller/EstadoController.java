@@ -25,22 +25,22 @@ public class EstadoController {
 
     @GetMapping("/")
     public List<Estado> listarEstados(){
-        return es.listarEstados();
+        return es.listar();
     }
 
     @PostMapping("/")
     public Estado inserirEstado(@RequestBody Estado estado){
-        return es.inserirEstado(estado);
+        return es.inserir(estado);
     }
 
     @PutMapping("/")
     public Estado alterarEstado(@RequestBody Estado estado){
-        return es.alterarEstado(estado);
+        return es.alterar(estado);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarEstado(@PathVariable("id") Long id){
-        es.deletarEstado(id);
+        es.deletar(id);
         return ResponseEntity.ok().build();
     }
 
