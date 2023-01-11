@@ -2,6 +2,8 @@ package com.dev.backend.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +28,7 @@ public class PermissaoPessoa {
     
     @ManyToOne
     @JoinColumn(name = "idPessoa")
+    @JsonIgnore
     private Pessoa pessoa;
 
     @ManyToOne
@@ -39,4 +42,5 @@ public class PermissaoPessoa {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_atualizacao")
     private Date dataAtualizacao;
+    
 }
